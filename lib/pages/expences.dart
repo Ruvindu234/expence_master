@@ -1,3 +1,4 @@
+import 'package:expence_master/widgects/expences_list.dart';
 import 'package:flutter/material.dart';
 import '../models/expence.dart';
 
@@ -16,17 +17,17 @@ class _ExpencesState extends State<Expences> {
         title: "Football",
         category: Category.leisure),
     ExpenceModel(
-        amount: 10,
+        amount: 10.77,
         date: DateTime.now(),
         title: "Carrot",
         category: Category.food),
     ExpenceModel(
-        amount: 12.5,
+        amount: 12.55,
         date: DateTime.now(),
         title: "Football",
         category: Category.leisure),
     ExpenceModel(
-        amount: 10,
+        amount: 10.99,
         date: DateTime.now(),
         title: "Carrot",
         category: Category.leisure)
@@ -58,19 +59,7 @@ class _ExpencesState extends State<Expences> {
       ),
       body: Column(
         children: [
-          ListView.builder(
-            itemCount: _expenceList.length,
-            itemBuilder: (context, index) {
-              return Text(_expenceList[index].title);
-              // return Card(
-              //   child: ListTile(
-              //     title: Text(_expenceList[index].title),
-              //     subtitle: Text(_expenceList[index].category.name),
-              //     trailing: Text('\$${_expenceList[index].amount}'),
-              //   ),
-              // );
-            },
-          ),
+          ExpenceList(expenceList: _expenceList),
         ],
       ),
     );

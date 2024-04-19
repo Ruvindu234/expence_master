@@ -1,3 +1,4 @@
+import 'package:expence_master/widgects/add_new_expence.dart';
 import 'package:expence_master/widgects/expences_list.dart';
 import 'package:flutter/material.dart';
 import '../models/expence.dart';
@@ -24,14 +25,23 @@ class _ExpencesState extends State<Expences> {
     ExpenceModel(
         amount: 12.55,
         date: DateTime.now(),
-        title: "Football",
-        category: Category.leisure),
+        title: "Bag",
+        category: Category.travel),
     ExpenceModel(
         amount: 10.99,
         date: DateTime.now(),
         title: "Carrot",
         category: Category.leisure)
   ];
+
+  void _openAddExpenceModel() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return AddNewExpence();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +60,7 @@ class _ExpencesState extends State<Expences> {
             child: Container(
               color: Colors.black,
               child: IconButton(
-                onPressed: () {},
+                onPressed: _openAddExpenceModel,
                 icon: const Icon(Icons.add, color: Colors.white),
               ),
             ),
